@@ -2,7 +2,9 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://Simar:Sunny123gg@cluster0-xbxcz.mongodb.net/test";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:true });
 client.connect(err => {
-  const collection = client.db("SBS_Hospital").collection("Doctors");
+	
+	/*
+	const collection = client.db("SBS_Hospital").collection("Doctors");
   
 	var insertDoctors=[{Doctor_ID:101,FullName:"Andrew Phelps",Gender:"M",Position:"Neurologist",Dept_ID:"AAA4",SalaryPH:56,SSN:918273654,Email:"ap123@sbshosp.com",Phone:						1029384731},
 						{Doctor_ID:102,FullName:"Andrea Alexander",Gender:"F",Position:"Dermatologist",Dept_ID:"AAA2",SalaryPH:48,SSN:918271054,Email:"aa343@sbshosp.com",Phone:1029329731},
@@ -14,7 +16,24 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Doctors table..");
+	*/
+	
+	const collection = client.db("SBS_Hospital").collection("Patient");
+	
+	var insertPatient=[{Patient_Number:1301,FullName:"Amitabh Bachchan",Gender:"M",Age:78,Blood_Group:"O-",Email:"mardkadard@gmail.com",Phone:8787565634},
+						{Patient_Number:1302,FullName:"Sunny Deol",Gender:"M",Age:55,Blood_Group:"B+",Email:"dhaaikilo@haath.com",Phone:8282464678},
+						{Patient_Number:1303,FullName:"Rekha",Gender:"F",Age:75,Blood_Group:"B+",Email:"ekchutkisindoor@gmail.com",Phone:8764925923},
+						{Patient_Number:1304,FullName:"Kaajol",Gender:"F",Age:43,Blood_Group:"O+",Email:"jasimranja@jeelezindagi.com",Phone:9876456492},
+						{Patient_Number:1305,FullName:"Salman Khan",Gender:"M",Age:53,Blood_Group:"AB+",Email:"karanarjun@aayenge.com",Phone:8928476492}];
+						
+	collection.insertMany(insertPatient,function(err,result){
+		if(err) throw err;
+		
+	console.log("Inserted 5 rows into Patient table..");
+	
   client.close();
 
 	});
 });
+
+

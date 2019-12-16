@@ -50,7 +50,7 @@ client.connect(err => {
 	console.log("Inserted 5 rows into Drug table..");
 	*/
 	
-	const collection = client.db("SBS_Hospital").collection("Doctors");
+	/*const collection = client.db("SBS_Hospital").collection("Doctors");
 
 	var updateSimar = { Doctor_ID: 102 };
 	var newvalueSimar = { $set: {SalaryPH: 58 } };
@@ -58,6 +58,23 @@ client.connect(err => {
 	collection.updateOne(updateSimar, newvalueSimar, function(err, res) {
     if (err) throw err;
     console.log("Update complete");
+	*/
+	
+	
+	
+	/*const collection = client.db("SBS_Hospital").collection("Drug");
+	var findSimar={Drug_Name:"Zingiber"};
+	collection.find(findSimar,{projection:{_id:0,Drug_ID:1,Drug_Name:1}}).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+	*/
+	
+	const collection2 = client.db("SBS_Hospital").collection("Doctors");
+	var deleteSimar = { Gender:"F" };
+	collection2.deleteMany(deleteSimar, function(err, result) {
+    if (err) throw err;
+    console.log("Deleted the female doctor...");
+	
 	
   client.close();
 

@@ -1,3 +1,5 @@
+//Simarjit Kaur
+
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://Simar:Sunny123gg@cluster0-xbxcz.mongodb.net/test";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:true });
@@ -19,6 +21,7 @@ client.connect(err => {
 	*/
 	/*
 	
+	
 	const collection = client.db("SBS_Hospital").collection("Patient");
 	
 	var insertPatient=[{Patient_Number:1301,FullName:"Amitabh Bachchan",Gender:"M",Age:78,Blood_Group:"O-",Email:"mardkadard@gmail.com",Phone:8787565634},
@@ -31,7 +34,9 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Patient table..");
+	
 	*/
+	/*
 	const collection = client.db("SBS_Hospital").collection("Drug");
 	var insertDrug=[{Drug_ID:15001,Drug_Name:"Tacrolimus",Major_Chemical:"calcineurin",Drug_Cost:45},
 					{Drug_ID:15002,Drug_Name:"Calcipotriene",Major_Chemical:"Dovonex",Drug_Cost:67},
@@ -43,6 +48,17 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Drug table..");
+	*/
+	
+	const collection = client.db("SBS_Hospital").collection("Doctors");
+
+	var updateSimar = { Doctor_ID: 102 };
+	var newvalueSimar = { $set: {SalaryPH: 58 } };
+	
+	collection.updateOne(updateSimar, newvalueSimar, function(err, res) {
+    if (err) throw err;
+    console.log("Update complete");
+	
   client.close();
 
 	});

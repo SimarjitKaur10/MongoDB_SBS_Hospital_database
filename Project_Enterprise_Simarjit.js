@@ -17,6 +17,7 @@ client.connect(err => {
 		
 	console.log("Inserted 5 rows into Doctors table..");
 	*/
+	/*
 	
 	const collection = client.db("SBS_Hospital").collection("Patient");
 	
@@ -30,7 +31,18 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Patient table..");
-	
+	*/
+	const collection = client.db("SBS_Hospital").collection("Drug");
+	var insertDrug=[{Drug_ID:15001,Drug_Name:"Tacrolimus",Major_Chemical:"calcineurin",Drug_Cost:45},
+					{Drug_ID:15002,Drug_Name:"Calcipotriene",Major_Chemical:"Dovonex",Drug_Cost:67},
+					{Drug_ID:15003,Drug_Name:"Prozac",Major_Chemical:"Fluoxetine",Drug_Cost:89},
+					{Drug_ID:15004,Drug_Name:"Elavil",Major_Chemical:"Amitriptyline",Drug_Cost:119},
+					{Drug_ID:15005,Drug_Name:"Zingiber",Major_Chemical:"Folic Acid",Drug_Cost:99}];
+						
+	collection.insertMany(insertDrug,function(err,result){
+		if(err) throw err;
+		
+	console.log("Inserted 5 rows into Drug table..");
   client.close();
 
 	});
